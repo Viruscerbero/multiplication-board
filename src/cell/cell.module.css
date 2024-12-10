@@ -1,0 +1,74 @@
+.cell {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid lightgrey;
+  box-shadow: -2px 2px 3px rgb(150, 150, 150);
+  user-select: none;
+  --is-selected: #a8ff6f;
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.cell:focus-visible {
+  outline: none;
+  border: 3px solid var(--is-selected);
+}
+
+.cell.header {
+  border: none;
+  box-shadow: none;
+}
+
+.cell.question span {
+  letter-spacing: -0.1rem;
+  filter: blur(0.4rem);
+}
+
+.cell.answer {
+  filter: none;
+  background-color: var(--is-selected);
+  box-shadow: -1px 1px 1px rgb(160, 160, 160);
+}
+
+.cell.answer.blurout div {
+  animation-name: blur-out;
+  animation-delay: 1s;
+  animation-duration: 2s;
+}
+
+@keyframes blur-out {
+  from {
+    /* Rules from .cell.answer */
+  }
+  to {
+    filter: blur(0.4rem);
+  }
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  .cell {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .cell {
+    width: 54px;
+    height: 54px;
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cell {
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+  }
+}
